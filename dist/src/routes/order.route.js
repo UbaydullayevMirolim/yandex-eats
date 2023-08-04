@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const isAdmin_middleware_1 = require("../middlewares/isAdmin.middleware");
+const express_1 = require("express");
+const order_controller_1 = require("../controller/order.controller");
+exports.router = (0, express_1.Router)();
+exports.router.post("/order", order_controller_1.createOrder);
+exports.router.get("/order", order_controller_1.getOrder);
+exports.router.get("/order/delivering", order_controller_1.getDelivered);
+exports.router.get("/order/denied", order_controller_1.getDenied);
+exports.router.get("/order/delivered", order_controller_1.getDelivered);
+exports.router.get("/order/day", order_controller_1.getDay);
+exports.router.get("/order/same_day", order_controller_1.getSameDayOrders);
+exports.router.get("/order/pending", order_controller_1.getPending);
+exports.router.delete("/order/:id", isAdmin_middleware_1.isAdmin, order_controller_1.destroyOrder);
+exports.router.put("/order/:id", order_controller_1.updatedOrder);
+exports.router.get("/order/:id", order_controller_1.getByIdOrder);

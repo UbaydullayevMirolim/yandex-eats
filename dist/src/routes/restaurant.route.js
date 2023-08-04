@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const isAdmin_middleware_1 = require("../middlewares/isAdmin.middleware");
+const restaurant_controller_1 = require("../controller/restaurant.controller");
+const express_1 = require("express");
+exports.router = (0, express_1.Router)();
+exports.router.get("/restaurant", restaurant_controller_1.getRestaurant);
+exports.router.post("/restaurant", restaurant_controller_1.createRestaurant);
+exports.router.get("/restaurant/location", restaurant_controller_1.getLocationRestaurant);
+exports.router.delete("/restaurant/:id", isAdmin_middleware_1.isAdmin, restaurant_controller_1.destroyRestaurant);
+exports.router.put("/restaurant/:id", isAdmin_middleware_1.isAdmin, restaurant_controller_1.updateRestaurant);
+exports.router.get("/restaurant/:id", restaurant_controller_1.getByIdRestaurant);

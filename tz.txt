@@ -1,0 +1,1 @@
+express node-emailer node-cron sequelie joi cors cookie-parser dotenv jsonwebtoken bcrypt stripe
